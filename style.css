@@ -14,11 +14,15 @@ body {
 header {
   padding: 1rem;
   background-color: white;
-  border-bottom: 2px solid #f2f2f2;
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
   align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
 }
 
 .logo img {
@@ -39,6 +43,15 @@ header {
   color: #2c5fd5;
   font-weight: bold;
   text-decoration: none;
+}
+
+.subscribe .button {
+  border: none;
+  background-color: #fb2300;
+  color: white;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
 }
 
 main {
@@ -144,23 +157,68 @@ main {
 }
 
 .subscribe {
-  background-color: #8bc34a;
   grid-area: subscribe;
+  padding: 3rem 1rem;
+  border-bottom: 1px solid #ddd;
+  text-align: right;
 }
 
-.ad {
-  background-color: #ff5722;
-  grid-area: ad;
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  margin-left: 1rem;
+  justify-content: flex-start;
+}
+
+.tabs span {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-sizing: border-box;
+  padding: 5px 12px;
+  font-size: 0.9rem;
+  font-weight: normal;
+  text-align: center;
+  max-width: max-content;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+span:first-child {
+  background: #606060;
+  color: white;
 }
 
 .up-next {
-  background-color: #3f51b5;
   grid-area: up-next;
+  margin-left: 1rem;
+}
+
+.up-next a {
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  grid-gap: 0.5rem;
+  padding-bottom: 0.75rem;
+}
+
+.up-next img {
+  width: 100%;
+}
+
+.up-next h4 {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.up-next p {
+  color: #888;
+  font-size: 0.9rem;
 }
 
 @media screen and (max-width: 700px) {
   .search,
-  .ad {
+  .tabs {
     display: none;
   }
 }
@@ -172,10 +230,15 @@ main {
 
   main {
     max-width: 1200px;
+    margin-top: 1.5rem;
     grid-template-areas:
-      "video-player video-player ad"
+      "video-player video-player tabs"
       "video-player video-player up-next"
       "video-info actions up-next"
       "channel subscribe up-next";
+  }
+
+  .video-info {
+    border-bottom: 1px solid #ddd;
   }
 }
